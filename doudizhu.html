@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>斗地主</title>
+		<script src="js/jquery-3.2.0.min.js"></script>
+		<script>
+		</script>
+
+		<link rel="stylesheet" href="css/doudizhu.css" />
+
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
+			}
+			
+			body {
+				background: url(img/47527.jpg) no-repeat 0 0 black;
+				background-size: 100% 100%;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			.temp_poker {
+				position: absolute;
+				left: 722px;
+			}
+			
+			.left {
+				width: 20%;
+				height: 800px;
+				float: left;
+				z-index: 3;
+				position: relative;
+				left: 30px
+			}
+			
+			.mid {
+				width: 60%;
+				height: 800px;
+				float: left;
+			}
+			
+			.mid_top {
+				width: 100%;
+				height: 550px;
+				float: left;
+			}
+			
+			.mid_con {
+				width: 100%;
+				height: 300px;
+				z-index: 1;
+				float: left;
+			}
+			
+			.content {
+				position: relative;
+			}
+			
+			.content li {
+				position: absolute;
+				width: 125px;
+			}
+			
+			.mid_end {
+				z-index: 3;
+				width: 100%;
+				height: 250px;
+				float: left;
+				position: relative;
+			}
+			
+			.right {
+				width: 20%;
+				height: 800px;
+				float: right;
+				position: relative;
+				right: 30px
+			}
+			
+			.all_poker {
+				width: 125px;
+				height: 175px;
+				margin: 100px auto 0px;
+				z-index: 1;
+				position: relative;
+			}
+			
+			.all_new_poker {
+				width: 125px;
+				height: 175px;
+				margin: 500px auto 0px;
+				position: relative;
+			}
+			
+			.back {
+				width: 125px;
+				height: 175px;
+				background: url('./img/14.png') -87px -225px;
+				position: absolute;
+				z-index: 100;
+			}
+			
+			.new_poker {
+				width: 125px;
+				height: 175px;
+				margin: 100px auto 0px;
+				position: relative;
+			}
+			
+			.all_poker li {
+				border-radius: 5px;
+				position: absolute;
+			}
+			
+			.play_1 li,
+			.play_2 li,
+			.play_3 li {
+				position: absolute;
+				border-radius: 5px;
+			}
+			
+			.play_2 {
+				width: 125px;
+				height: 175px;
+				margin: 30px auto 0px;
+				position: relative;
+			}
+			
+			.play_btn {
+				display: none;
+			}
+			
+			.getLandlord {
+				display: none;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<!--弹幕飘过的div-->
+		<div class="tanMu"></div>
+
+		<!--聊天窗口-->
+		<div class="talkWindow">
+			<textarea id="text" class="talk" cols="30" rows="10" style="resize:none;"></textarea>
+			<input id="talk_send" class="talk_send sendA" type="button" value="发送" />
+			<input class="hid_A" type="button" value="隐藏" />
+			<div class="hid_B">?
+				<div class='bgsound'>
+					<audio id="audioA" src="voice/bg.mp3" loop="loop" autoplay="autoplay" controls="controls"></audio>
+					<!--背景音乐-->
+				</div>
+			</div>
+		</div>
+
+		<div class="tipBox">
+			<div class="talkTip"></div>
+			<input class="talk_send sendB" type="button" value="弹幕" />
+		</div>
+
+		<div class="left">
+			<ul class="play_1">
+
+			</ul>
+			<p class="getLandlord">
+				<input class="confirm confirmA conA" type="button" value="抢地主" data-value="0">
+				<input class="cancel confirmA celA" type="button" value="不抢">
+			</p>
+			<p class="play_btn">
+
+				<span class="a"><input class="play confirmB conA" type="button" value="出牌"></span><span class="b"><input class="not_play confirmB celA" type="button" value="不出"></span>
+			</p>
+
+			<!--用户头像-->
+			<div class="touxiang tx1"></div>
+			<div class="mofaBox posA">
+				<div class="mofaA m"></div>
+				<span class="mofa_spanA">地主</span>
+			</div>
+
+			<!--倒计时-->
+			<div class="clock clock1" id="clock">
+				<div class="clock_bottom">
+					<img src="img/lock_2.png" alt="" />
+				</div>
+				<div class="clock_top">
+					<img src="img/lock_1.png" alt="" />
+				</div>
+				<div class="clock_num" id="clock_num">20s</div>
+			</div>
+		</div>
+
+		<div class="mid">
+			<div class="mid_top">
+				<ul class="all_poker">
+				</ul>
+				<div class="mid_con">
+					<ul class="content">
+					</ul>
+				</div>
+			</div>
+			<div class="mid_end">
+				<ul class="play_2">
+				</ul>
+				<p class="getLandlord">
+					<input class="confirm confirmA conB" type="button" value="抢地主">
+					<input class="cancel confirmA celB" type="button" value="不抢">
+				</p>
+				<p class="play_btn">
+					<span class="a"><input class="play confirmB conB" type="button" value="出牌"></span><span class="b"><input class="not_play confirmB celB" type="button" value="不出"></span>
+				</p>
+
+				<!--用户头像-->
+				<div class="touxiang tx2"></div>
+				<div class="mofaBox posB">
+					<div class="mofaB m"></div>
+					<span class="mofa_spanA">地主</span>
+				</div>
+
+				<!--倒计时-->
+				<div class="clock clock2">
+					<div class="clock_bottom">
+						<img src="img/lock_2.png" alt="" />
+					</div>
+					<div class="clock_top">
+						<img src="img/lock_1.png" alt="" />
+					</div>
+					<div class="clock_num" id="clock_num">20s</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="right">
+			<ul class="play_3">
+
+			</ul>
+			<p class="getLandlord">
+				<input class="confirm confirmA conC" type="button" value="抢地主">
+				<input class="cancel confirmA celC" type="button" value="不抢">
+			</p>
+			<p class="play_btn">
+				<span class="a"><input class="play confirmB conC" type="button" value="出牌"></span><span class="b"><input class="not_play confirmB celC" type="button" value="不出"></span>
+			</p>
+
+			<!--用户头像-->
+			<div class="touxiang tx3"></div>
+			<div class="mofaBox posC">
+				<div class="mofaC m"></div>
+				<span class="mofa_spanA">地主</span>
+			</div>
+
+			<!--倒计时-->
+			<div class="clock clock3">
+				<div class="clock_bottom">
+					<img src="img/lock_2.png" alt="" />
+				</div>
+				<div class="clock_top">
+					<img src="img/lock_1.png" alt="" />
+				</div>
+				<div class="clock_num" id="clock_num">20s</div>
+			</div>
+		</div>
+
+		<!--弹窗提示-->
+		<div id="window" class="window">
+			<!--包租婆-->
+			<div class="windowBox"></div>
+			<div class="windowTip tipImgA"></div>
+			<div class="windowTipA"></div>
+			<div class="newstart animat">重新开始</div>
+			<!--按钮在这里=============================================-->
+		</div>
+
+		<div id="windowA" class="windowA">
+			<!--企鹅弹窗-->
+			<div class="windowBox"></div>
+			<div class="windowTip tipImgB"></div>
+			<div class="windowTipA"></div>
+		</div>
+
+		<div id="windowB" class="windowB">
+			<!--无脸男弹窗-->
+			<div class="windowBox"></div>
+			<div class="windowTip tipImgC"></div>
+			<div class="windowTipA"></div>
+		</div>
+
+		<div id="windowC" class="windowC">
+			<!--杨贵妃弹窗-->
+			<div class="windowBox"></div>
+			<div class="windowTip tipImgD"></div>
+			<div class="windowTipA"></div>
+		</div>
+
+		<!--牌型动画-->
+		<div class="donghuaA"></div>
+		<!--炸弹-->
+		<div class="donghuaB"></div>
+		<!--飞机-->
+		<div class="donghuaD"></div>
+		<!--火箭-->
+		<div class="donghuaE"></div>
+		<!--顺子-->
+
+		<!--农民胜利动画-->
+		<div class="donghuaBox dA">
+			<div class="d">
+				<div class="donghuaC">农民胜利了</div>
+				<div class="newstart new_s">重新开始</div>
+				<!--按钮在这里=============================================		-->
+			</div>
+
+		</div>
+		<!--地主胜利动画-->
+		<div class="donghuaBox dB">
+			<div class="d">
+				<div class="donghuaC">地主胜利了</div>
+				<div class="newstart new_s">重新开始</div>
+				<!--按钮在这里=============================================		-->
+			</div>
+		</div>
+
+		<!--积分框-->
+		<div class="jifenBox">积分
+			<div class="jifen"></div>
+			<span>0</span>
+		</div>
+
+		<!--声音-->
+
+		<div class="voice">
+			<audio id="audioB" src="voice/qiangdizhu.mp3"></audio>
+			<!--抢地主-->
+			<audio id="audioC" src="voice/buqiang.mp3"></audio>
+			<!--不抢-->
+			<audio id="audioD" src="voice/fapai.mp3"></audio>
+			<!--发牌-->
+			<audio id="audioE" src="voice/f1.mp3"></audio>
+			<audio id="audioF" src="voice/b1.mp3"></audio>
+			<audio id="audioG" src="voice/h1.mp3"></audio>
+			<audio id="audioH" src="voice/chupai.mp3"></audio>
+			<!--出牌-->
+			<audio id="audioI" src="voice/buchu.mp3"></audio>
+			<!--不出-->
+			<audio id="audioJ" src="voice/feiji.mp3"></audio>
+			<!--飞机-->
+			<audio id="audioN" src="voice/flybg.mp3"></audio>
+			<!--飞机-->
+			<audio id="audioK" src="voice/bomb.mp3"></audio>
+			<!--炸弹-->
+			<audio id="audioL" src="voice/threeone.mp3"></audio>
+			<!--3带1-->
+			<audio id="audioM" src="voice/threetwo.mp3"></audio>
+			<!--3带2-->
+			<audio id="audioO" src="voice/liandui.mp3"></audio>
+			<!--连对-->
+			<audio id="audioP" src="voice/fourtwo.mp3"></audio>
+			<!--4带2-->
+			<audio id="audioQ" src="voice/win.mp3"></audio>
+			<!--胜利-->
+			<audio id="audioR" src="voice/wangzha.wav"></audio>
+			<!--王炸-->
+			<audio id="audioS" src="voice/shunzi.mp3"></audio>
+			<!--顺子-->
+
+		</div>
+
+	</body>
+	<script src="js/donghua.js"></script>
+	<script src="js/clear-send-poker.js"></script>
+	<script src="js/daojishi.js"></script>
+
+</html>

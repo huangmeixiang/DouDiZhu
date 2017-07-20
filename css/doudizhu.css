@@ -1,0 +1,743 @@
+			.clock {
+				width: 70px;
+				height: 70px;
+				position: relative;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.clock_bottom {
+				width: 70px;
+				height: 70px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 3;
+			}
+			
+			.clock_top {
+				width: 70px;
+				height: 70px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 3;
+				animation: clock 2s linear infinite;
+			}
+			
+			@keyframes clock {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			
+			.clock_top img {
+				width: 70px;
+				height: 70px;
+			}
+			
+			.clock_bottom img {
+				width: 70px;
+				height: 70px;
+			}
+			
+			.clock .clock_num {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 5;
+				text-align: center;
+				line-height: 70px;
+				color: white;
+				text-shadow: 0 1px 2px yellow;
+			}
+			/*左边玩家倒计时放的位置*/
+			
+			.clock1 {
+				position: absolute;
+				top: 140px;
+				right: -60px;
+			}
+			/*右边玩家倒计时放的位置*/
+			
+			.clock2 {
+				position: absolute;
+				top: -50px;
+				right: 250px;
+			}
+			/*中间玩家倒计时放的位置*/
+			
+			.clock3 {
+				position: absolute;
+				top: 140px;
+				left: -60px;
+			}
+			/*抢地主和不抢按钮的样式*/
+			
+			.confirmA {
+				width: 80px;
+				height: 33px;
+				line-height: 33px;
+				background: url(../img/anniu_1.png) no-repeat 0 0;
+				background-size: 100% 90%;
+				border: none;
+				color: white;
+				font-family: "微软雅黑";
+				text-shadow: 1px 1px 2px black;
+				cursor: pointer;
+			}
+			
+			.confirmA:hover {
+				color: white;
+				line-height: 33px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+				text-shadow: 0 1px 1px black;
+			}
+			/*抢地主和不抢按钮的位置*/
+			
+			.conA {
+				position: absolute;
+				top: 255px;
+				right: -65px;
+			}
+			
+			.celA {
+				position: absolute;
+				top: 360px;
+				right: -65px;
+			}
+			
+			.conB {
+				position: absolute;
+				top: -25px;
+				left: 260px;
+			}
+			
+			.celB {
+				position: absolute;
+				top: -25px;
+				left: 390px;
+			}
+			
+			.conC {
+				position: absolute;
+				top: 255px;
+				left: -65px;
+			}
+			
+			.celC {
+				position: absolute;
+				top: 360px;
+				left: -65px;
+			}
+			/*出牌和不出牌的样式*/
+			
+			.confirmB {
+				width: 80px;
+				height: 33px;
+				line-height: 28px;
+				background: url(../img/anniu_3.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				border: none;
+				color: white;
+				font-family: "微软雅黑";
+				text-shadow: 1px 1px 2px black;
+				cursor: pointer;
+			}
+			
+			.confirmB:hover {
+				color: white;
+				line-height: 33px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+				text-shadow: 0 1px 1px black;
+			}
+			/*弹窗样式	*/
+			
+			.window {
+				display: none;
+			}
+			
+			.windowA {
+				display: none;
+			}
+			
+			.windowB {
+				display: none;
+			}
+			
+			.windowC {
+				display: none;
+			}
+			
+			.windowTip {
+				width: 380px;
+				height: 450px;
+				text-align: center;
+				font-family: "幼圆";
+				font-weight: bold;
+				position: fixed;
+				top: 60px;
+				left: 500px;
+				z-index: 100;
+				animation: movie 2s linear infinite;
+			}
+			
+			.tipImgA {
+				font-size: 18px;
+				line-height: 560px;
+				background: url(../img/tanchuang.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			
+			.tipImgB {
+				font-size: 22px;
+				line-height: 480px;
+				background: url(../img/tanchuang1.gif) no-repeat center 20px;
+				background-size: 85% 85%;
+			}
+			
+			.tipImgC {
+				font-size: 22px;
+				line-height: 555px;
+				color: white;
+				background: url(../img/tanchuang2.png) no-repeat -20px 20px;
+				background-size: 100% 100%;
+			}
+			
+			.tipImgD {
+				font-size: 22px;
+				padding-top: 320px;
+				background: url(../img/tanchuang3.png) no-repeat center 0;
+				background-size: 100% 100%;
+			}
+			
+			@keyframes movie {
+				0% {
+					transform: translateY(0px);
+				}
+				50% {
+					transform: translateY(30px);
+				}
+				100% {
+					transform: translateY(0px);
+				}
+			}
+			
+			.windowTipA {
+				width: 45px;
+				height: 45px;
+				position: fixed;
+				background: url(../img/del.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				top: 60px;
+				left: 835px;
+				cursor: pointer;
+				z-index: 100;
+				animation: movie 2s linear infinite;
+			}
+			
+			.windowTipA:hover {
+				background: url(../img/del.png) no-repeat 0 1px;
+				background-size: 97% 97%;
+			}
+			
+			.windowBox {
+				width: 1440px;
+				height: 900px;
+				background: rgba(0, 0, 0, 0.6);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 100;
+			}
+			
+			.newstart {
+				width: 100px;
+				height: 50px;
+				line-height: 65px;
+				padding-left: 10px;
+				background: url(../img/anniu_4.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				z-index: 100;
+				color: black;
+				font-size: 16px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+				cursor: pointer;
+			}
+			
+			.animat {
+				position: fixed;
+				top: 430px;
+				left: 635px;
+				animation: movie 2s linear infinite;
+			}
+			
+			.newstart:hover {
+				text-shadow: 0 0 2px yellow;
+			}
+			/*用户头像*/
+			
+			.touxiang {
+				width: 75px;
+				height: 148px;
+				animation: tx 3s linear infinite;
+				display: none;
+				z-index: 2;
+			}
+			
+			@keyframes tx {
+				0% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.07);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			
+			.tx1 {
+				position: absolute;
+				bottom: 397px;
+				left: -10px;
+				background: url(../img/touxiang3_1.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				cursor: pointer;
+			}
+			
+			.tx1:hover {
+				width: 75px;
+				height: 148px;
+				background: url(../img/touxiang3.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			
+			.tx2 {
+				position: absolute;
+				bottom: 225px;
+				left: 80px;
+				background: url(../img/touxiang2_1.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				cursor: pointer;
+			}
+			
+			.tx2:hover {
+				width: 75px;
+				height: 148px;
+				background: url(../img/touxiang2.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			
+			.tx3 {
+				position: absolute;
+				bottom: 397px;
+				right: -10px;
+				background: url(../img/touxiang1_1.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				cursor: pointer;
+			}
+			
+			.tx3:hover {
+				width: 75px;
+				height: 148px;
+				background: url(../img/touxiang1.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			/*地主*/
+			
+			.mofaBox {
+				width: 100px;
+				height: 100px;
+				text-align: center;
+				z-index: 1;
+				display: none;
+			}
+			
+			.posA {
+				bottom: 348px;
+				left: -23px;
+				position: absolute;
+			}
+			
+			.posB {
+				position: absolute;
+				bottom: 6px;
+				left: 66px;
+			}
+			
+			.posC {
+				position: absolute;
+				bottom: 342px;
+				right: -25px;
+			}
+			
+			.mofaA {
+				background: url(../img/mofa1.png) no-repeat 0 0;
+			}
+			
+			.mofaB {
+				background: url(../img/mofa2.png) no-repeat 0 0;
+			}
+			
+			.mofaC {
+				background: url(../img/mofa3.png) no-repeat 0 0;
+			}
+			
+			.m {
+				width: 100px;
+				height: 100px;
+				background-size: 100% 100%;
+				animation: mofa 3s linear infinite;
+				display: inline-block;
+			}
+			
+			@keyframes mofa {
+				from {
+					transform: rotateX(75deg) rotateZ(0)
+				}
+				to {
+					transform: rotateX(75deg) rotateZ(360deg)
+				}
+			}
+			
+			.mofa_spanA {
+				position: absolute;
+				bottom: 12px;
+				left: 30px;
+				color: white;
+				font-family: "微软雅黑";
+				font-size: 16px;
+				text-shadow: 0 0 2px white;
+			}
+			/*声音*/
+			
+			.voice {
+				position: absolute;
+			}
+			/*弹幕窗口*/
+			
+			.talkWindow {
+				width: 200px;
+				height: 205px;
+				position: fixed;
+				bottom: 17px;
+				right: 90px;
+				background: url(../img/ck.png) no-repeat 0 0;
+				background-size: 100% 70%;
+				z-index: 2;
+				transition: all 2s;
+				transform: rotateY(180deg);
+				backface-visibility: hidden;
+			}
+			
+			.talk_send {
+				width: 50px;
+				height: 40px;
+				line-height: 25px;
+				text-align: center;
+				font-size: 14px;
+				font-family: "幼圆";
+				font-weight: bold;
+				cursor: pointer;
+				background: url(../img/anniu_5.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				border: none;
+				color: white;
+			}
+			
+			.sendA {
+				position: absolute;
+				bottom: 10px;
+				right: 88px;
+			}
+			
+			.sendB {
+				margin-left: 10px;
+			}
+			
+			.hid_A {
+				width: 40px;
+				height: 32px;
+				line-height: 25px;
+				text-align: center;
+				font-size: 12px;
+				font-family: "幼圆";
+				font-weight: bold;
+				cursor: pointer;
+				background: url(../img/anniu_5.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				border: none;
+				color: white;
+				position: absolute;
+				bottom: 11px;
+				right: 45px;
+			}
+			
+			.hid_A:hover {
+				font-size: 11px;
+				background: url(../img/anniu_6.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			
+			.hid_B {
+				width: 28px;
+				height: 20px;
+				line-height: 17px;
+				text-align: center;
+				font-size: 11px;
+				font-family: "幼圆";
+				font-weight: bold;
+				cursor: pointer;
+				background: url(../img/anniu_5.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				border: none;
+				color: white;
+				position: absolute;
+				bottom: 12px;
+				right: 12px;
+			}
+			
+			.hid_B:hover {
+				font-size: 10px;
+				background: url(../img/anniu_6.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			
+			.hid_B:hover .bgsound {
+				display: block;
+				border: 1px solid white;
+			}
+			
+			.talk_send:hover {
+				font-size: 13px;
+				background: url(../img/anniu_6.png) no-repeat 0 0;
+				background-size: 100% 100%;
+			}
+			
+			.talk {
+				width: 200px;
+				height: 120px;
+				padding: 20px 20px;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+				border-radius: 10px;
+				background: transparent;
+				color: white;
+				border: none;
+				outline: 0;
+			}
+			
+			.tanMu {
+				width: 940px;
+				height: 500px;
+				position: fixed;
+				z-index: 0;
+				top: 0;
+				left: 200px;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.tanMu_p {
+				padding: 0 20px;
+				line-height: 40px;
+				text-shadow: 1px 1px 3px white;
+				font-family: "微软雅黑";
+			}
+			
+			.tipBox {
+				width: 75px;
+				height: 230px;
+				position: fixed;
+				bottom: 25px;
+				right: 164px;
+				z-index: 2;
+				display: none;
+			}
+			
+			.talkTip {
+				width: 75px;
+				height: 186px;
+				background: url(../img/dongua_1.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				z-index: 2;
+			}
+			
+			input {
+				outline: 0;
+			}
+			
+			em {
+				position: absolute;
+				font-style: normal;
+			}
+			/*牌型动画*/
+			/*炸弹动画*/
+			
+			.donghuaA {
+				width: 755px;
+				height: 700px;
+				position: absolute;
+				top: 0;
+				left: 270px;
+				background: url(../img/zhadan.gif) no-repeat center center;
+				background-size: 70% 70%;
+				z-index: 101;
+				display: none;
+			}
+			/*飞机动画*/
+			
+			.donghuaB {
+				width: 1362px;
+				height: 750px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(../img/feiji.gif) no-repeat center center;
+				background-size: 100% 100%;
+				z-index: 101;
+				display: none;
+			}
+			/*火箭动画*/
+			
+			.donghuaD {
+				width: 1362px;
+				height: 750px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(../img/huojian.gif) no-repeat center center;
+				background-size: 100% 100%;
+				z-index: 101;
+				display: none;
+			}
+			/*顺子动画*/
+			
+			.donghuaE {
+				width: 550px;
+				height: 350px;
+				position: absolute;
+				top: 150px;
+				left: 450px;
+				background: url(../img/shunzi.gif) repeat center center;
+				background-size: 60% 50%;
+				z-index: 101;
+				display: none;
+			}
+			/*农民胜利*/
+			
+			.donghuaBox {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 800px;
+				background: rgba(0, 0, 0, 0.7);
+				z-index: 101;
+				display: none;
+			}
+			
+			.new_s {
+				position: absolute;
+				top: 480px;
+				left: 530px;
+			}
+			
+			.d {
+				animation: nm 2s ease-in-out 1;
+			}
+			
+			.donghuaC {
+				width: 420px;
+				height: 455px;
+				position: absolute;
+				top: 100px;
+				left: 480px;
+				background: url(../img/win1.png) no-repeat center center;
+				background-size: 100% 100%;
+				z-index: 102;
+				cursor: pointer;
+				color: white;
+				font-size: 60px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+				text-align: center;
+				text-shadow: 0 0 5px black;
+				border-radius: 400px;
+			}
+			
+			@keyframes nm {
+				0% {
+					transform: scale(0)
+				}
+				70% {
+					transform: scale(1)
+				}
+				90% {
+					transform: scale(0.9)
+				}
+				100% {
+					transform: scale(1)
+				}
+			}
+			/*积分框*/
+			
+			.jifenBox {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 34px;
+				right: 407px;
+				color: white;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+				text-align: center;
+				display: none;
+			}
+			
+			.jifen {
+				width: 100px;
+				height: 100px;
+				background: url(../img/jifen.png) no-repeat 0 0;
+				background-size: 100% 100%;
+				animation: jf 2s linear infinite;
+			}
+			
+			@keyframes jf {
+				from {
+					transform: rotateZ(0)
+				}
+				to {
+					transform: rotateZ(360deg)
+				}
+			}
+			
+			.jifenBox span {
+				position: absolute;
+				bottom: 7px;
+				right: 40px;
+				color: black;
+				z-index: 1;
+				font-size: 24px;
+				font-family: "微软雅黑";
+			}
+			
+			.bgsound {
+				position: absolute;
+				bottom: -10px;
+				right: -20px;
+				z-index: 2;
+				display: none;
+				width: 300px;
+				height: 10px;
+				z-index: 103;
+			}
